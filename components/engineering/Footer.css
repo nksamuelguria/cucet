@@ -1,0 +1,21 @@
+/* Footer styles, extracted from the original header-footer.css.
+   Class names are unchanged: the markup and these selectors must match. */
+
+.cu-address, .footer-widget, .copyright-wrap {
+	font-size: 12px;
+}
+.goto-top {
+    height: 40px;
+    width: 40px;
+    line-height: 38px;
+    text-align: center;
+    position: fixed;
+    bottom: 103px;
+    right: 32px;
+    color: var(--text-color-white);
+    border-radius: 10px;
+    font-size: 20px;
+    z-index: 99;
+    display: none;
+    cursor: pointer;
+}

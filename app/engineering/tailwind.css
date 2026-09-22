@@ -1,0 +1,132 @@
+/* Tailwind entry for the engineering page.
+ *
+ * Preflight is deliberately NOT imported. The page's visual design comes from
+ * the original stylesheets, which rely on the existing reboot; adding a second
+ * reset would change typography and spacing everywhere.
+ */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Bootstrap's breakpoints, not Tailwind's defaults. The markup was authored
+ * against these, so lg must stay 992px (Tailwind ships 1024px) and sm 576px
+ * (Tailwind ships 640px), or every responsive rule shifts. */
+@theme {
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Replacements for the Bootstrap grid and utilities that were stripped out of
+ * main-landing.css.
+ *
+ * These keep their original class names on purpose: the project's own
+ * stylesheets target them as selectors (.container, .row, .bg-white,
+ * .text-white and others appear in ~94 custom rules), so renaming them in the
+ * markup would silently drop that styling.
+ *
+ * They are intentionally OUTSIDE any @layer. Bootstrap shipped them unlayered
+ * at the top of main-landing.css, and this file loads immediately before it,
+ * so leaving them unlayered reproduces the original cascade position exactly.
+ * Putting them in a layer would flip it: unlayered rules always beat layered
+ * ones, and for !important declarations layer order is inverted.
+ * ------------------------------------------------------------------------ */
+
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Bootstrap's max-width ladder. */
+@media (min-width: 576px)  { .container { max-width: 540px; } }
+@media (min-width: 768px)  { .container { max-width: 720px; } }
+@media (min-width: 992px)  { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+/* The project's own overrides on top of this ladder (1250px, 1175px, 1495px,
+ * 1695px) still live in main-landing.css and load after this file. */
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+.g-0 { --bs-gutter-x: 0; --bs-gutter-y: 0; }
+
+.col-5  { flex: 0 0 auto; width: 41.66666667%; }
+.col-6  { flex: 0 0 auto; width: 50%; }
+.col-12 { flex: 0 0 auto; width: 100%; }
+
+@media (min-width: 576px) {
+  .col-sm-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .col-sm-6 { flex: 0 0 auto; width: 50%; }
+  .col-sm-8 { flex: 0 0 auto; width: 66.66666667%; }
+}
+@media (min-width: 768px) {
+  .col-md-3  { flex: 0 0 auto; width: 25%; }
+  .col-md-4  { flex: 0 0 auto; width: 33.33333333%; }
+  .col-md-5  { flex: 0 0 auto; width: 41.66666667%; }
+  .col-md-6  { flex: 0 0 auto; width: 50%; }
+  .col-md-7  { flex: 0 0 auto; width: 58.33333333%; }
+  .col-md-9  { flex: 0 0 auto; width: 75%; }
+  .col-md-12 { flex: 0 0 auto; width: 100%; }
+}
+@media (min-width: 992px) {
+  .col-lg-4  { flex: 0 0 auto; width: 33.33333333%; }
+  .col-lg-5  { flex: 0 0 auto; width: 41.66666667%; }
+  .col-lg-6  { flex: 0 0 auto; width: 50%; }
+  .col-lg-7  { flex: 0 0 auto; width: 58.33333333%; }
+  .col-lg-12 { flex: 0 0 auto; width: 100%; }
+}
+@media (min-width: 1200px) {
+  .col-xl-7  { flex: 0 0 auto; width: 58.33333333%; }
+  .col-xl-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .col-xl-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* Utilities whose names the project's stylesheets depend on. !important is
+ * carried over because those rules were authored against Bootstrap's
+ * !important utilities; dropping it would change which declaration wins. */
+.bg-white          { background-color: #fff !important; }
+.text-white        { color: #fff !important; }
+.text-center       { text-align: center !important; }
+.text-end          { text-align: right !important; }
+.position-relative { position: relative !important; }
+.align-items-center { align-items: center !important; }
+/* The order-* family stays together. .col-md-6.order-first is a real
+ * dependency so order-first/last keep their names; their responsive partners
+ * must then stay too, or an unlayered !important order-last would beat a
+ * layered Tailwind sm:order-first and the hero columns would stop swapping. */
+.order-first       { order: -1 !important; }
+.order-last        { order: 6 !important; }
+@media (min-width: 576px) {
+  .order-sm-first { order: -1 !important; }
+  .order-sm-last  { order: 6 !important; }
+}
+.mt-0              { margin-top: 0 !important; }
+.mt-5              { margin-top: 3rem !important; }
+.p-0               { padding: 0 !important; }
+
+/* .d-none, .d-block and .shadow are NOT here: nothing in the project's
+ * stylesheets targets them as selectors, so they convert to real Tailwind
+ * utilities in the markup instead (hidden / block / shadow-[...]). */

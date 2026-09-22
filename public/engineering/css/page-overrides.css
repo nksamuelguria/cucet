@@ -1,0 +1,157 @@
+/* Page-level styles from the <style> blocks in the original index.php <head>
+ * and near its footer. They must load AFTER the other stylesheets, exactly as
+ * they did in the original document, because they override rules in
+ * main-landing.css and style-new.css. Component-imported CSS is hoisted ahead
+ * of the <link> tags by the bundler, so these live here and are linked last.
+ */
+
+.abet-logo {
+  width: 180px;
+}
+.abet-info h5 {
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+.abet-info p {
+  font-size: 12px;
+  line-height: 14px;
+}
+.abet-block {
+  display: flex;
+  align-items: start;
+  padding-top: 35px;
+}
+
+@media screen and (min-device-width: 1400px) and (max-device-width: 1799px) {
+  .abet-logo {
+    width: 150px;
+    margin-bottom: 10px;
+  }
+  .abet-info h5 {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (min-device-width: 1251px) and (max-device-width: 1399px) {
+  .abet-logo {
+    width: 135px;
+  }
+}
+
+@media screen and (min-device-width: 1251px) and (max-device-width: 1365px) {
+  .abet-info h5 {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .rankInset {
+    margin-left: -106px;
+  }
+}
+
+@media screen and (min-device-width: 991px) and (max-device-width: 1251px) {
+  .abet-block {
+    display: block;
+    align-items: center;
+  }
+  .abet-logo {
+    width: 150px;
+    margin-bottom: 10px;
+  }
+  .rankInset {
+    width: 415px;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .rankInset {
+    width: 388px;
+    position: relative;
+    left: -73px;
+  }
+}
+
+@media (max-width: 991px) {
+  .abet-block {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .abet-block .abet-logo {
+    width: 120px;
+  }
+  .abet-info h5 {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 5px;
+    margin-top: 8px;
+    text-align: left;
+  }
+  .abet-info p {
+    font-size: 11px;
+    line-height: 13px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 575px) {
+  .abet-block {
+    flex-wrap: nowrap;
+  }
+  .abet-block .abet-logo {
+    margin-top: 5px;
+  }
+  .abet-info h5,
+  .abet-info p {
+    text-align: left;
+  }
+  .h-51 {
+    height: 45%;
+  }
+  .abet-logo-mob,
+  .qs-logo-mob {
+    width: 155px;
+  }
+  .qss-lg img {
+    width: 100px;
+  }
+}
+
+/* Page-level <style> block from the original index.php, near the footer.
+   The bar is hidden until the page is scrolled; Footer.tsx adds .show past
+   100px, matching the inline script in the original document. */
+.footer-fixed-bar {
+  background: #225296;
+  position: fixed;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+  padding: 10px 0;
+  display: none;
+  border-radius: 20px 20px 0 0;
+}
+.footer-fixed-bar.show {
+  display: block;
+}
+.footer-fixed-bar p {
+  color: var(--bs-white);
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+.footer-fixed-bar a {
+  text-transform: uppercase;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 20px;
+  color: #f7a300;
+  display: inline-block;
+  vertical-align: middle;
+}

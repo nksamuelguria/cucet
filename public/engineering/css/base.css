@@ -1,0 +1,179 @@
+/* Global base: design tokens (:root), element defaults and colour utilities.
+   Split out of the original header-footer.css; the header- and footer-specific
+   rules now live beside their components in components/engineering/. */
+
+/**** GLOBAL STYLES ****/
+:root {
+    --alt-sub-font: 'PlayfairDisplayBold';
+    --bgcolor-red: #d91f23;
+    --bgcolor-dark-red: #c51316;
+    --bgcolor-yellow: #ffb900;
+    --bgcolor-cyan-blue: #0679a4;
+    --bgcolor-light-blue: #bfd3ff;
+    --bgcolor-blue: #29376d;
+    --bgcolor-dark-purple: #1c2052;
+    --bgcolor-dark: #111111;
+    --bgcolor-darkGray: #999999;
+    --bgcolor-d-gray: #666666;
+    --bgcolor-lightGray: #d9d9d9;
+    --bgcolor-lgray: #d5d5d5;
+    --bgcolor-white: #ffffff;
+    --bgcolor-off-white: #e5e5e5;
+    --bgcolor-mid-gray: #e4e4e4;
+    --bgcolor-more-gray: #787878;
+    --bgcolor-soft-gray: #f8f8f8;
+    --bgcolor-gray: #f2f4f8;
+    --bgcolor-offgray: #f4f4f4;
+    --bgcolor-off-gray: #cccccc;
+    --text-color-white: #ffffff;
+    --text-color-dark: #111111;
+    --text-color-red: #d91f23;
+    --text-color-yellow: #e1b230;
+	--text-color-orange: #f1851c;
+    --text-color-gray: #a6a6a6;
+    --text-color-off-gray: #cccccc;
+    --text-color-d-gray: #666666;
+    --text-color-trans-gray: #fefefe;
+    --text-color-op-gray: #b1b1b1;
+	--text-color-dark-gray: #a6a6a6;
+	--gray-opacity-bg: rgba(182, 182, 182, 0.4);
+	--light-purple-opacity-bg: rgba(27, 31, 82, 0.1);
+    --red-opacity-bg: rgba(217, 31, 35, 0.95);
+    --blue-opacity-bg: rgba(18, 39, 116, 0.7);
+    --white-opacity-bg: rgba(254, 254, 254, .2);
+	--light-white-opacity-bg: rgba(255, 255, 255, 0.1);
+	--light-off-white-opacity-bg: rgba(255, 255, 255, 0.9);
+    --off-white-opacity-bg: rgba(242, 244, 248, 0.2);
+    --light-gray-opacity-bg: rgba(11, 11, 11, 0.4);
+    --black-opacity-bg: rgba(0, 0, 0, .075);
+    --dark-black-opacity-bg: rgba(54, 54, 54, 0.7);
+    --red-gradient-bg: linear-gradient(45deg, rgb(217, 31, 35), rgb(255, 255, 255));
+    --offwhite-gradient-bg: linear-gradient(90deg, rgb(242, 244, 248) 70%, rgba(242, 244, 248, 0.1));
+    --purple-gradient-bg: linear-gradient(90deg, rgb(30, 34, 82) 30%, rgba(30, 34, 82, 0.1));
+    --dark-grey-gradient-bg: linear-gradient(90deg, rgb(44, 44, 44) 5%, rgba(44, 44, 44, 0.1));
+    --light-blue-gradient-bg: linear-gradient(45deg, rgb(48, 193, 186), rgb(255, 255, 255));
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    color: var(--text-color-dark);
+    background: var(--bgcolor-white);
+    overflow-x: hidden;
+    font-family: var(--primary-font);
+    transition: all 0.3s ease-in-out;
+}
+a {
+    outline: 0;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--secondary-font);
+}
+.btn-close:focus {
+	outline: 0;
+	box-shadow: none;
+}
+.text-white {
+    color: var(--text-color-white)!important;
+}
+.text-red {
+    color: var(--text-color-red)!important;
+}
+.text-dark-grey {
+    color: var(--text-color-dark)!important;
+}
+.text-yellow {
+    color: var(--text-color-yellow)!important;
+}
+.red-bg {
+    background: var(--bgcolor-red);
+}
+.violet-bg {
+    background: var(--bgcolor-blue)!important;
+}
+.light-violet-bg {
+    background: var(--bgcolor-light-blue);
+}
+.gray-filter {
+    filter: grayscale();
+}
+.white-bg {
+    background: var(--bgcolor-white);
+}
+.transparent-bg {
+    background: transparent;
+}
+.offwhite-bg {
+    background: var(--bgcolor-offgray);
+}
+.grey-bg {
+    background: #b6b6b6;
+}
+.default-bg {
+    background: #252324;
+}
+.purple-bg {
+    background: #4d4958;
+}
+.dark-grey-bg {
+    background: rgba(18, 39, 87, 0.98);
+}
+.yellow-bg {
+    background: var(--bgcolor-yellow);
+}
+.cyan-bg {
+    background: var(--bgcolor-cyan-blue)!important;
+}
+.light-blue-bg {
+	background: #202d63 !important;
+}
+
+.dark-blue-bg {
+	background: var(--bgcolor-dark-purple)!important;
+}
+
+.blue-gradient-bg {
+    background: linear-gradient(135deg,rgb(27, 59, 115) 0,rgb(17, 37, 85) 59%,rgb(15, 23, 57) 59%,rgb(21, 24, 68) 100%)!important;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,rgba(0,0,0,.7) 0,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 100%);
+}
+.patent-section, .unique-section, .copyright-section {
+    padding-top: 80px;
+    max-width: 1140px;
+    margin: 0px auto;
+}
+
+
+/**** RESPONSIVE STYLES ****/
+
+@media (min-width: 1400px) { 
+    .patent-section, .unique-section, .copyright-section {
+        max-width: 1320px;
+        padding-right: var(--bs-gutter-x,.75rem);
+        padding-left: var(--bs-gutter-x,.75rem);
+    } 
+} 
+
+@media (min-width: 1599px) { 
+    .patent-section, .unique-section, .copyright-section {
+        max-width: 1400px;
+    } 
+} 
+
+
+@media (min-width: 1920px) {
+    .patent-section, .unique-section, .copyright-section {
+        max-width: 1470px;
+    }
+}
