@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@next/third-parties": "^16.3.6",
     "lucide-react": "latest",
     "next": "16.3.5",
     "react": "19.2.8",
@@ -29,5 +30,8 @@
     "edge >= 111",
     "firefox >= 111",
     "safari >= 16.4"
-  ]
+  ],
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
+  }
 }

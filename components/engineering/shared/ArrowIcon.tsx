@@ -8,5 +8,17 @@ export default function ArrowIcon({ variant = "white" }: { variant?: "white" | "
       ? "/engineering/imgs-new/right-arrow-red.webp"
       : "/engineering/imgs-new/right-arrow-btn.webp";
 
-  return <img decoding="async" src={src} alt="Button Arrow" width="22" className="ml-2!" />;
+  // The red arrow only appears in the mentor section, well below the fold;
+  // the white one trails the hero CTA, so it stays eager. Marking it lazy also
+  // stops React emitting a preload link for it during SSR.
+  return (
+    <img
+      decoding="async"
+      loading={variant === "red" ? "lazy" : undefined}
+      src={src}
+      alt="Button Arrow"
+      width="22"
+      className="ml-2!"
+    />
+  );
 }

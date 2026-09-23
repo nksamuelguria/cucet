@@ -1,7 +1,7 @@
 "use client";
 
 import ArrowIcon from "./shared/ArrowIcon";
-
+import LsqFormWidget from "./LsqFormWidget";
 import { useState } from "react";
 import Carousel from "./Carousel";
 
@@ -251,6 +251,7 @@ export default function HeroSection() {
                     }}
                   />
                 </div>
+                <LsqFormWidget />
 
                 
               </div>
@@ -263,12 +264,19 @@ export default function HeroSection() {
             selectedIndex={placeIndex}
             onSelect={setPlaceIndex}
           >
-            {PLACEMENTS.map((p) => (
+            {PLACEMENTS.map((p, i) => (
               <div className="item" key={p.photo}>
                 <div className="almni-photo">
+                  {/* Only the first placement is on screen. React emits a
+                      preload link for every <img> a client component renders
+                      during SSR, and a preload overrides loading="lazy" — so
+                      all six photos and their six logos were being fetched
+                      during the initial load. */}
                   <img
                     src={p.photo}
                     alt={p.photoAlt}
+                    loading={i === 0 ? undefined : "lazy"}
+                    decoding={i === 0 ? undefined : "async"}
                   />
                 </div>
                 <div className={p.txtClassName}>
@@ -289,6 +297,8 @@ export default function HeroSection() {
                       src={p.logo}
                       alt={p.logoAlt}
                       width={p.logoWidth}
+                      loading={i === 0 ? undefined : "lazy"}
+                      decoding={i === 0 ? undefined : "async"}
                     />
                   </div>
                 </div>

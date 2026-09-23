@@ -152,7 +152,16 @@ export default function Carousel({
                 // at left:1011px inside a 1011px track has no space left, so
                 // shrink-to-fit collapses it to its minimum content width.
                 left: 0,
-                transform: `translateX(${offsets[i] ?? 0}px)`,
+                // Until measure() runs there are no offsets, and every cell
+                // would sit at 0 — stacked on top of each other and all inside
+                // the viewport, which makes the browser load the lazy images
+                // in every cell, not just the visible one. One viewport width
+                // apart is a good enough guess to keep the rest off screen
+                // until the measured pixel offsets replace it.
+                transform:
+                  offsets[i] === undefined
+                    ? `translateX(${i * 100}%)`
+                    : `translateX(${offsets[i]}px)`,
               },
             } as never)
           )}
