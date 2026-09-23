@@ -1,0 +1,62 @@
+/* Photographic backgrounds that sit far below the fold. As CSS
+   background-image they were fetched during the initial page load — about
+   165 KB for content four to twelve screens down, competing with the hero
+   image for bandwidth. They are <img> elements now, so `loading="lazy"`
+   applies and each one also gets an 800px file on phones. The rules here
+   place each image exactly where its background-size/position put it. */
+
+/* Event slider cards: background-size:cover, centred. */
+.ev-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+/* World map strip: background-size:auto (natural size), centred. */
+.int-sec {
+  position: relative;
+  overflow: hidden;
+}
+
+.int-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: none;
+  object-position: center;
+  z-index: -1;
+}
+
+/* Advert card panel: background-size:contain, pinned left/top, and
+   background-size:cover below 576px, matching main-landing.css. */
+.adbanner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left top;
+}
+
+@media only screen and (max-width: 575px) {
+  .adbanner img {
+    object-fit: cover;
+  }
+}
+
+/* First hero slide — the LCP element. Phones were downloading the 1920px
+   file (23.4 KB) to show it 412px wide; the 800px file is 8 KB. The preload
+   links in layout.tsx carry matching media attributes so the right one is
+   fetched from the first bytes of the document. */
+.hero-first {
+  background-image: url("/engineering/imgs-new/banner-2025-4.webp");
+}
+
+@media (max-width: 800px) {
+  .hero-first {
+    background-image: url("/engineering/imgs-new/banner-2025-4-800.webp");
+  }
+}

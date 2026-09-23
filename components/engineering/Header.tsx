@@ -10,19 +10,19 @@ const APPLY_BUTTONS = ["apply-btn", "call-btn"];
 
 const BRAND_LOGOS = [
   {
-    src: "/engineering/images/cu-logo-white.png",
+    src: "/engineering/images/cu-logo-white.webp",
     alt: "chandigarh University logo",
     className: "h-cu-logo",
     title: undefined,
   },
   {
-    src: "/engineering/images/naac-logo-white.png",
+    src: "/engineering/images/naac-logo-white.webp",
     alt: "NAAC A+ Grade University in Punjab",
     className: "h-naac-logo",
     title: "NAAC A+ Grade University in Punjab",
   },
   {
-    src: "/engineering/images/qs-logo-new.png",
+    src: "/engineering/images/qs-logo-new.webp",
     alt: "QS World Ranked University",
     className: "h-naac-logo",
     title: "QS World Ranked University",

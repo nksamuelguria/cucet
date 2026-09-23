@@ -1,5 +1,3 @@
-"use client";
-
 import ArrowIcon from "./shared/ArrowIcon";
 
 export default function MentorSection() {
@@ -9,7 +7,7 @@ export default function MentorSection() {
         <div className="mentor-box">
           <div className="row h-full! items-end!">
             <div className="col-md-5 hidden! xl:block!">
-              <img src="/engineering/imgs-new/mentors-bg.png" width="544" alt="Mentors Inset"
+              <img loading="lazy" decoding="async" src="/engineering/imgs-new/mentors-bg.webp" width="544" alt="Mentors Inset"
                 className="mentorInset" />
             </div>
             <div className="col-md-7 h-full! pr-50">
@@ -17,7 +15,7 @@ export default function MentorSection() {
                 <div className="col-12">
                   <h4 className="mentor-title">Seasoned
                     professionals provide <br />
-                    <highlight>real-world knowledge and applied learning</highlight>
+                    <span className="highlight">real-world knowledge and applied learning</span>
                   </h4>
                 </div>
               </div>

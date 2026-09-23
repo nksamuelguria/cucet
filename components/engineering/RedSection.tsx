@@ -1,5 +1,3 @@
-"use client";
-
 export default function RedSection() {
   return (
     <section className="red-sec">

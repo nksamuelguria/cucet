@@ -21,6 +21,8 @@ type CarouselProps = {
   prevNextButtons?: boolean;
   selectedIndex?: number;
   onSelect?: (index: number) => void;
+  role?: string;
+  ariaLabel?: string;
 };
 
 // Reproduces the DOM that Flickity built (.flickity-viewport > .flickity-slider,
@@ -34,6 +36,8 @@ export default function Carousel({
   prevNextButtons = true,
   selectedIndex,
   onSelect,
+  role,
+  ariaLabel,
 }: CarouselProps) {
   const cells = Children.toArray(children).filter(isValidElement) as ReactElement[];
   const count = cells.length;
@@ -116,7 +120,11 @@ export default function Carousel({
     : -Math.min(offsets[index] ?? 0, maxScroll);
 
   return (
-    <div className={`${className} flickity-enabled is-draggable`}>
+    <div
+      className={`${className} flickity-enabled is-draggable`}
+      role={role}
+      aria-label={ariaLabel}
+    >
       <div
         className="flickity-viewport"
         ref={viewportRef}
@@ -138,8 +146,8 @@ export default function Carousel({
               style: {
                 ...((cell.props as { style?: object }).style ?? {}),
                 position: "absolute",
-                // Every cell stays at left:0 and is offset with a transform,
-                // the way Flickity did it. Using `left` instead would shrink
+                // Every cell stays at left:0 and is offset with a transform, the
+                // way Flickity did it. Using `left` instead would shrink
                 // cells that have no CSS width: an absolutely positioned cell
                 // at left:1011px inside a 1011px track has no space left, so
                 // shrink-to-fit collapses it to its minimum content width.

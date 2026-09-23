@@ -9,9 +9,6 @@ header {
 	z-index: 1000;
 	transition: all 0.2s ease-in-out;
 }
-.noscroll {
-	overflow: hidden;
-}
 #header {
 	transition: all .4s ease-in-out;
 }
@@ -41,21 +38,6 @@ header {
     width: 150px;
     margin-left: 15px;
 }
-.custom.contact-details p {
-	margin-bottom: 6px;
-}
-.logo-area:hover .logo-infocard {
-	opacity: 1;
-	visibility: visible;
-	top: 70px;
-	-webkit-transition: all .15s ease-out;
-	transition: all .15s ease-out;
-	-webkit-transition-delay: .3s;
-	transition-delay: .3s;
-}        
-.gap {
-	padding: 8px 0 !important;
-}
 
 
 /**** BUTTON (used only by the header) ****/
@@ -76,11 +58,6 @@ header {
 .cu-btn:hover {
     color: var(--text-color-white); 
     background: var(--bgcolor-dark-purple);
-}
-
-
-.cu-btn.dark-blue-bg:hover {
-	background: var(--bgcolor-yellow)!important;
 }
 
 

@@ -7,33 +7,36 @@ import Carousel from "./Carousel";
 
 type HeroSlide = {
   className: string;
-  image: string;
+  image: string | null;
 };
 
 const HERO_SLIDES: HeroSlide[] = [
   {
-    className: "heroSlider__item",
-    image: "/engineering/imgs-new/banner-2025-4.webp",
+    // The LCP element. Its URL lives in responsive-images.css, where a media
+    // query swaps in the 800px file on phones; an inline style could not be
+    // overridden that way.
+    className: "heroSlider__item hero-first",
+    image: null,
   },
   {
     className: "heroSlider__item hidden! md:block!",
-    image: "/engineering/imgs-new/banner-2025-6.jpg",
+    image: "/engineering/imgs-new/banner-2025-6.webp",
   },
   {
     className: "heroSlider__item hidden! md:block!",
-    image: "/engineering/imgs-new/bnr-1.jpg",
+    image: "/engineering/imgs-new/bnr-1.webp",
   },
   {
     className: "heroSlider__item hidden! md:block!",
-    image: "/engineering/imgs-new/banner-2025-5.jpg",
+    image: "/engineering/imgs-new/banner-2025-5.webp",
   },
   {
     className: "heroSlider__item hidden! md:block!",
-    image: "/engineering/imgs-new/banner-2025-3.jpg",
+    image: "/engineering/imgs-new/banner-2025-3.webp",
   },
   {
     className: "heroSlider__item hidden! md:block!",
-    image: "/engineering/imgs-new/banner-2025-2.jpg",
+    image: "/engineering/imgs-new/banner-2025-2.webp",
   },
 ];
 
@@ -54,7 +57,7 @@ type Placement = {
 
 const PLACEMENTS: Placement[] = [
   {
-    photo: "/engineering/imgs-new/sid-inset-bg.png",
+    photo: "/engineering/imgs-new/sid-inset-bg.webp",
     photoAlt: "Siddharth Photo",
     txtClassName: "hp-txt",
     firstName: "Siddhant",
@@ -68,12 +71,12 @@ const PLACEMENTS: Placement[] = [
     ),
     amount: "1.7",
     unit: "CRORE",
-    logo: "/engineering/imgs-new/dame-munni-cap.png",
+    logo: "/engineering/imgs-new/dame-munni-cap.webp",
     logoAlt: "Dame Irone logo",
     logoWidth: "155",
   },
   {
-    photo: "/engineering/imgs-new/jaspreet-inset-bg.png",
+    photo: "/engineering/imgs-new/jaspreet-inset-bg.webp",
     photoAlt: "Jaspreet Singh Photo",
     txtClassName: "hp-txt aat",
     firstName: "Jaspreet",
@@ -87,12 +90,12 @@ const PLACEMENTS: Placement[] = [
     ),
     amount: "59.9",
     unit: "LPA",
-    logo: "/engineering/imgs-new/atlassian-logo.png",
+    logo: "/engineering/imgs-new/atlassian-logo.webp",
     logoAlt: "Atlassian Logo",
     logoWidth: "90",
   },
   {
-    photo: "/engineering/imgs-new/vc-inset-bg.png",
+    photo: "/engineering/imgs-new/vc-inset-bg.webp",
     photoAlt: "Vandana Photo",
     txtClassName: "hp-txt",
     firstName: "Vandana",
@@ -101,12 +104,12 @@ const PLACEMENTS: Placement[] = [
     packageLabel: <>National{" "} Package</>,
     amount: "54.75",
     unit: "LPA",
-    logo: "/engineering/imgs-new/pan-logo-light.png",
+    logo: "/engineering/imgs-new/pan-logo-light.webp",
     logoAlt: "Paloalto Logo",
     logoWidth: "183",
   },
   {
-    photo: "/engineering/imgs-new/kc-inset-bg.png",
+    photo: "/engineering/imgs-new/kc-inset-bg.webp",
     photoAlt: "Kunal Photo",
     txtClassName: "hp-txt",
     firstName: "Kunal",
@@ -119,12 +122,12 @@ const PLACEMENTS: Placement[] = [
     ),
     amount: "54.00",
     unit: "LPA",
-    logo: "/engineering/imgs-new/volvo-logo.png",
+    logo: "/engineering/imgs-new/volvo-logo.webp",
     logoAlt: "Volvo Logo",
     logoWidth: "179",
   },
   {
-    photo: "/engineering/imgs-new/shanya-inset-bg.png",
+    photo: "/engineering/imgs-new/shanya-inset-bg.webp",
     photoAlt: "Shanya Photo",
     txtClassName: "hp-txt",
     firstName: "Shanya",
@@ -133,12 +136,12 @@ const PLACEMENTS: Placement[] = [
     packageLabel: <>National{" "} Package</>,
     amount: "51.00",
     unit: "LPA",
-    logo: "/engineering/imgs-new/microsoft-logo.png",
+    logo: "/engineering/imgs-new/microsoft-logo.webp",
     logoAlt: "Microsoft Logo",
     logoWidth: "108",
   },
   {
-    photo: "/engineering/imgs-new/harsh-inset-bg.png",
+    photo: "/engineering/imgs-new/harsh-inset-bg.webp",
     photoAlt: "Harsh Photo",
     txtClassName: "hp-txt",
     firstName: "Harsh",
@@ -147,7 +150,7 @@ const PLACEMENTS: Placement[] = [
     packageLabel: <>National{" "} Package</>,
     amount: "44.00",
     unit: "LPA",
-    logo: "/engineering/imgs-new/amazon-logo.png",
+    logo: "/engineering/imgs-new/amazon-logo.webp",
     logoAlt: "Amazon Logo",
     logoWidth: "109",
   },
@@ -170,7 +173,7 @@ export default function HeroSection() {
             key={slide.image}
             className={slide.className}
             style={{
-              backgroundImage: `url('${slide.image}')`,
+              backgroundImage: slide.image ? `url('${slide.image}')` : undefined,
             }}
           ></div>
         ))}

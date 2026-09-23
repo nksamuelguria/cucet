@@ -1,5 +1,3 @@
-"use client";
-
 export default function AboutSection() {
   return (
     <section className="about-sec pt-115 pb-115">
@@ -9,17 +7,17 @@ export default function AboutSection() {
             <div className="row abt-row">
               <div className="col-md-6 col-lg-7">
                 <div className="big-dept-cover">
-                  <img className="w-full!" src="/engineering/imgs-new/bcp-bg-1.jpg"
+                  <img loading="lazy" decoding="async" className="w-full!" src="/engineering/imgs-new/bcp-bg-1.webp"
                     alt="Department big side image" />
                 </div>
               </div>
               <div className="col-md-6 col-lg-5 hidden! md:block!">
                 <div className="small-dept-cover-upper">
-                  <img className="w-full!" src="/engineering/imgs-new/bcp-bg-2.jpg"
+                  <img loading="lazy" decoding="async" className="w-full!" src="/engineering/imgs-new/bcp-bg-2.webp"
                     alt="Department small side image" />
                 </div>
                 <div className="small-dept-cover-lower">
-                  <img className="w-full!" src="/engineering/imgs-new/bcp-bg-3.jpg"
+                  <img loading="lazy" decoding="async" className="w-full!" src="/engineering/imgs-new/bcp-bg-3.webp"
                     alt="Department small side image" />
                 </div>
               </div>

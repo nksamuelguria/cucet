@@ -26,7 +26,7 @@ export default function Footer() {
               <div className="col-lg-12">
                 <div className="footer-logo text-center my-12!">
                   <a className="" href="#page-top">
-                    <img src="/engineering/images/cucet-logo.webp"
+                    <img loading="lazy" decoding="async" src="/engineering/images/cucet-logo.webp"
                       alt="CUCET - Chandigarh University Common Entrance Test"
                       title="CUCET 2026 - Chandigarh University Common Entrance Test" width="120" />
                   </a>

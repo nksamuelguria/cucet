@@ -5,7 +5,7 @@ export type Collaborator = "ibm" | "microsoft" | "tcs";
 
 const LOGOS: Record<Collaborator, { src: string; alt: string; width: string }> = {
   ibm: {
-    src: "/engineering/imgs-new/ibm-logo.png",
+    src: "/engineering/imgs-new/ibm-logo.webp",
     alt: "IBM Collaborated Engineering Programs",
     width: "30",
   },
@@ -15,7 +15,7 @@ const LOGOS: Record<Collaborator, { src: string; alt: string; width: string }> =
     width: "70",
   },
   tcs: {
-    src: "/engineering/imgs-new/tcs-logo.png",
+    src: "/engineering/imgs-new/tcs-logo.webp",
     alt: "TCS",
     width: "45",
   },
@@ -23,5 +23,5 @@ const LOGOS: Record<Collaborator, { src: string; alt: string; width: string }> =
 
 export default function CollabLogo({ name }: { name: Collaborator }) {
   const { src, alt, width } = LOGOS[name];
-  return <img src={src} alt={alt} width={width} className="collab-logo" />;
+  return <img loading="lazy" decoding="async" src={src} alt={alt} width={width} className="collab-logo" />;
 }

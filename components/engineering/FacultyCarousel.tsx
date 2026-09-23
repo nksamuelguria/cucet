@@ -1,5 +1,3 @@
-"use client";
-
 import Carousel from "./Carousel";
 
 type Faculty = {
@@ -18,7 +16,7 @@ const FACULTY: Faculty[] = [
       "90+ Research Publications",
       "Key contributions in thermal spray coatings, and tribology",
     ],
-    img: "/engineering/imgs-new/fc-jashan.jpg",
+    img: "/engineering/imgs-new/fc-jashan.webp",
     alt: "Jashanpreet Portrait",
   },
   {
@@ -28,7 +26,7 @@ const FACULTY: Faculty[] = [
       "120+ Research Articles",
       "Key contributions in Photonics, Optical Communication Networks",
     ],
-    img: "/engineering/imgs-new/fc-meet.jpg",
+    img: "/engineering/imgs-new/fc-meet.webp",
     alt: "Meet Portrait",
   },
   {
@@ -38,7 +36,7 @@ const FACULTY: Faculty[] = [
       "91+ Research Articles",
       "Key contributions in Nanotechnology & Biomedical Applications",
     ],
-    img: "/engineering/imgs-new/fc-ashfaq.jpg",
+    img: "/engineering/imgs-new/fc-ashfaq.webp",
     alt: "Ashfaq Portrait",
   },
   {
@@ -48,7 +46,7 @@ const FACULTY: Faculty[] = [
       "150+ Research Papers",
       "Key contributions in optical communication systems & photonic radars",
     ],
-    img: "/engineering/imgs-new/fc-mehtab.jpg",
+    img: "/engineering/imgs-new/fc-mehtab.webp",
     alt: "Mehtab Portrait",
   },
   {
@@ -58,7 +56,7 @@ const FACULTY: Faculty[] = [
       "75 Research Articles",
       "Key contributions in Biosensing of CKD Biomarkers & Environmental Pollutants",
     ],
-    img: "/engineering/imgs-new/fc-deepak.jpg",
+    img: "/engineering/imgs-new/fc-deepak.webp",
     alt: "Deepak Portrait",
   },
   {
@@ -68,7 +66,7 @@ const FACULTY: Faculty[] = [
       "240+ Research Articles",
       "Key contributions in Nanofabrication, Bio-inspired Materials, Green Nanotechnology",
     ],
-    img: "/engineering/imgs-new/fc-kaushik.jpg",
+    img: "/engineering/imgs-new/fc-kaushik.webp",
     alt: "Kaushik Portrait",
   },
   {
@@ -78,7 +76,7 @@ const FACULTY: Faculty[] = [
       "90+ Research Publications",
       "Key contributions on pharmacology, focusing on neurodegenerative diseases & herbal drug development",
     ],
-    img: "/engineering/imgs-new/fc-atul.jpg",
+    img: "/engineering/imgs-new/fc-atul.webp",
     alt: "Atul Portrait",
   },
   {
@@ -88,7 +86,7 @@ const FACULTY: Faculty[] = [
       "75+ Research Publications",
       "Key contributions in pharmaceutics focusing Nanovaccine & Formulation development",
     ],
-    img: "/engineering/imgs-new/fc-hitesh.jpg",
+    img: "/engineering/imgs-new/fc-hitesh.webp",
     alt: "Hitesh Portrait",
   },
 ];
@@ -100,7 +98,7 @@ export default function FacultyCarousel() {
         <div className="subHeading text-center position-relative">
           <h3>
             Proud Hub of Researchers<br /> Ranked Among{" "}
-            <highlight>The World’s Top 2% Scientists</highlight>
+            <span className="highlight">The World’s Top 2% Scientists</span>
             <small>(Stanford Global List 2024)</small>
           </h3>
         </div>
@@ -123,7 +121,7 @@ export default function FacultyCarousel() {
                 </ul>
               </div>
               <div className="fac-pic">
-                <img src={f.img} alt={f.alt} />
+                <img loading="lazy" decoding="async" src={f.img} alt={f.alt} />
               </div>
             </div>
           ))}

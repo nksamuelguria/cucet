@@ -1,5 +1,3 @@
-"use client";
-
 import ArrowIcon from "./shared/ArrowIcon";
 
 export default function AdvertSection() {
@@ -23,8 +21,14 @@ export default function AdvertSection() {
                   </div>
                 </div>
               </div>
-              <div className="adbanner"
-                style={{ backgroundImage: "url('/engineering/imgs-new/ads-bg.webp')" }}></div>
+              <div className="adbanner">
+                <img
+                  src="/engineering/imgs-new/ads-bg.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </div>

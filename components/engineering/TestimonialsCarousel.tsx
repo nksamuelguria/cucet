@@ -1,5 +1,3 @@
-"use client";
-
 import Carousel from "./Carousel";
 
 type Testimonial = {
@@ -14,8 +12,8 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    photo: "/engineering/imgs-new/ira-gupta.jpg",
-    logo: "/engineering/imgs-new/microsoft-logo-dark.png",
+    photo: "/engineering/imgs-new/ira-gupta.webp",
+    logo: "/engineering/imgs-new/microsoft-logo-dark.webp",
     logoAlt: "Microsoft",
     logoWidth: "108",
     quote:
@@ -24,8 +22,8 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Chief Human Resources Officer, Microsoft",
   },
   {
-    photo: "/engineering/imgs-new/kurian.jpg",
-    logo: "/engineering/imgs-new/adani-logo.png",
+    photo: "/engineering/imgs-new/kurian.webp",
+    logo: "/engineering/imgs-new/adani-logo.webp",
     logoAlt: "Chandigarh University Engineering",
     logoWidth: "70",
     quote:
@@ -34,8 +32,8 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Chief Sales Officer, Adani Cements Adani",
   },
   {
-    photo: "/engineering/imgs-new/aparna-dhingra.jpg",
-    logo: "/engineering/imgs-new/bmw-logo.png",
+    photo: "/engineering/imgs-new/aparna-dhingra.webp",
+    logo: "/engineering/imgs-new/bmw-logo.webp",
     logoAlt: "Chandigarh University Engineering",
     logoWidth: "43",
     quote:
@@ -44,8 +42,8 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Head of Region (HR)- Asia Pacific, Africa, Middle East, BMW Ind",
   },
   {
-    photo: "/engineering/imgs-new/thirukumaran.jpg",
-    logo: "/engineering/imgs-new/ibm-logo.png",
+    photo: "/engineering/imgs-new/thirukumaran.webp",
+    logo: "/engineering/imgs-new/ibm-logo.webp",
     logoAlt: "Chandigarh University Engineering College",
     logoWidth: "64",
     quote:
@@ -54,8 +52,8 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Vice President & HR Head, IBM",
   },
   {
-    photo: "/engineering/imgs-new/harpreet-kaur.jpg",
-    logo: "/engineering/imgs-new/adobe-logo.png",
+    photo: "/engineering/imgs-new/harpreet-kaur.webp",
+    logo: "/engineering/imgs-new/adobe-logo.webp",
     logoAlt: "Chandigarh University Engineering",
     logoWidth: "108",
     quote:
@@ -77,11 +75,11 @@ const PARTNER_LOGOS: PartnerLogo[] = [
     alt: "Chandigarh University Google Engineering Placements",
   },
   {
-    src: "/engineering/imgs-new/microsoft-logo-est.png",
+    src: "/engineering/imgs-new/microsoft-logo-est.webp",
     alt: "Chandigarh University Microsoft Engineering Placements",
   },
   {
-    src: "/engineering/imgs-new/intel-logo.png",
+    src: "/engineering/imgs-new/intel-logo.webp",
     alt: "Chandigarh University Intel Engineering Placements",
   },
   {
@@ -90,12 +88,12 @@ const PARTNER_LOGOS: PartnerLogo[] = [
   },
   {
     className: "max-w-full h-auto ptrans",
-    src: "/engineering/imgs-new/tcs-logo.png",
+    src: "/engineering/imgs-new/tcs-logo.webp",
     alt: "Chandigarh University TCS Engineering Placements",
   },
   {
     className: "max-w-full h-auto ptrans",
-    src: "/engineering/imgs-new/virtusa-logo.png",
+    src: "/engineering/imgs-new/virtusa-logo.webp",
     alt: "Chandigarh University Virtusa Engineering Placements",
   },
   {
@@ -121,10 +119,10 @@ export default function TestimonialsCarousel() {
           <div className="mind-item" key={t.name}>
             <div className="mimg">
               <div className="person-pic">
-                <img src={t.photo} alt="Engineering Mind Alumni" className="w-full!" />
+                <img loading="lazy" decoding="async" src={t.photo} alt="Engineering Mind Alumni" className="w-full!" />
               </div>
               <div className="comp-logo">
-                <img src={t.logo} alt={t.logoAlt} width={t.logoWidth} />
+                <img loading="lazy" decoding="async" src={t.logo} alt={t.logoAlt} width={t.logoWidth} />
               </div>
             </div>
             <div className="para">
@@ -149,7 +147,7 @@ export default function TestimonialsCarousel() {
               <Carousel className="partner-slider" prevNextButtons={false}>
                 {PARTNER_LOGOS.map((l) => (
                   <div className="fg-item" key={l.src}>
-                    <img className={l.className} src={l.src} alt={l.alt} />
+                    <img loading="lazy" decoding="async" className={l.className} src={l.src} alt={l.alt} />
                   </div>
                 ))}
               </Carousel>

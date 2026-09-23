@@ -5,8 +5,8 @@
 export default function ArrowIcon({ variant = "white" }: { variant?: "white" | "red" }) {
   const src =
     variant === "red"
-      ? "/engineering/imgs-new/right-arrow-red.png"
+      ? "/engineering/imgs-new/right-arrow-red.webp"
       : "/engineering/imgs-new/right-arrow-btn.webp";
 
-  return <img src={src} alt="Button Arrow" width="22" className="ml-2!" />;
+  return <img decoding="async" src={src} alt="Button Arrow" width="22" className="ml-2!" />;
 }

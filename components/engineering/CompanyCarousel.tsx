@@ -1,5 +1,3 @@
-"use client";
-
 import Carousel from "./Carousel";
 
 type CompanyLogo = {
@@ -52,7 +50,7 @@ export default function CompanyCarousel() {
             <Carousel className="partner-slider mt-6!" prevNextButtons={false}>
               {[...COMPANY_LOGOS, ...COMPANY_LOGOS].map((logo, index) => (
                 <div className="fg-item" key={index}>
-                  <img className={logo.className} src={logo.src} alt={logo.alt} />
+                  <img loading="lazy" decoding="async" className={logo.className} src={logo.src} alt={logo.alt} />
                 </div>
               ))}
             </Carousel>

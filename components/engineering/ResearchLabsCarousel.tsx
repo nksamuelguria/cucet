@@ -1,5 +1,3 @@
-"use client";
-
 import Carousel from "./Carousel";
 
 type ResearchLab = {
@@ -61,7 +59,7 @@ export default function ResearchLabsCarousel() {
         <Carousel className="researchLabs-slider mt-5" wrapAround>
           {RESEARCH_LABS.map((lab) => (
             <div className="researchLabs-item" key={lab.src}>
-              <img src={lab.src} alt={lab.alt}
+              <img loading="lazy" decoding="async" src={lab.src} alt={lab.alt}
                 className="w-full! h-full!" />
               <div className="box">
                 <h3 className="title">{lab.title}</h3>

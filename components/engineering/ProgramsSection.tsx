@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 
 import Carousel from "./Carousel";
@@ -164,7 +162,7 @@ export default function ProgramsSection() {
           </div>
           <div className="col-sm-6">
             <div className="course-logo text-end">
-              <img src="/engineering/imgs-new/engg-course-logo.png"
+              <img loading="lazy" decoding="async" src="/engineering/imgs-new/engg-course-logo.webp"
                 alt="Chandigarh University Engineering Admissions" width="229" />
             </div>
           </div>
